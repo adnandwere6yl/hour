@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>temi</title>
+<style>
+  body {
+    background-color: rgb(10, 2, 34);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  #temi {
+    font-size: 200px;
+    font-family: 'Courier New', monospace;
+    text-shadow: 0 0 10px , 0 0 20px ;
+  }
+  .rights{
+    color: rgb(22, 212, 193);
+    position: absolute;
+    top:450px;
+    font-size: 75px;
+    text-shadow: 0 0 30px rgb(30, 0, 255);
+  }
+  span{
+    padding: 30px;
+  }
+</style>
+</head>
+<body>
+
+<div id="temi">00:00:00</div>
+
+<script>
+  var i = 0;
+  var colors = ["#00FF00", "#FF0000", "#00BFFF", "#FF1493", "#FFA500", "#FFFF00"];
+
+  function hour() {
+    var now = new Date();
+    var hours = String(now.getHours()).padStart(2, '0');
+    var minutes = String(now.getMinutes()).padStart(2, '0');
+    var seconds = String(now.getSeconds()).padStart(2, '0');
+
+    var clock = document.getElementById("temi");
+    clock.style.color = colors[i];
+    clock.textContent = `${hours}:${minutes}:${seconds}`;
+
+    i = (i + 1) % colors.length; 
+  }
+
+  setInterval(hour, 1000);
+  hour(); 
+</script>
+<div class="rights">
+    <span>😅</span>
+    <span>A</span>
+    <span>D</span>
+    <span>N</span>
+    <span>A</span>
+    <span>N</span>
+    <span>😅</span>
+</div>
+
+</body>
+</html>
